@@ -1,6 +1,6 @@
 package ayds.apolo3.lastfm.info
 
-import ayds.apolo.songinfo.moredetails.model.entities.ArtistArticle
+import ayds.apolo3.lastfm.ArtistArticle
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject

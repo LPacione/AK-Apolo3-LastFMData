@@ -1,6 +1,6 @@
 package ayds.apolo3.lastfm.info
 
-import ayds.apolo.songinfo.moredetails.model.entities.ArtistArticle
+import ayds.apolo3.lastfm.ArtistArticle
 import ayds.apolo3.lastfm.LastFMInfoService
 import retrofit2.Response
 

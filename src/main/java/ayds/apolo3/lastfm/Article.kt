@@ -14,10 +14,3 @@ data class ArtistArticle(
     override var isLocallyStoraged: Boolean = false
 ) : Article
 
-object EmptyArticle : Article {
-    override val description: String = ""
-    override val infoURL: String = ""
-    override var sourceLogoURL: String = ""
-    override var isLocallyStoraged: Boolean = false
-}
-
