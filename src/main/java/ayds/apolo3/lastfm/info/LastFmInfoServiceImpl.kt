@@ -1,6 +1,6 @@
 package ayds.apolo3.lastfm.info
 
-import ayds.apolo3.lastfm.FullCard
+import ayds.apolo.songinfo.moredetails.model.entities.ArtistArticle
 import ayds.apolo3.lastfm.LastFMInfoService
 import retrofit2.Response
 
@@ -9,7 +9,7 @@ internal class LastFmInfoServiceImpl(
     private val lastFMToInfoResolver: LastFMToInfoResolver
 ) : LastFMInfoService {
 
-    override fun getCardInfo(artist: String): FullCard? {
+    override fun getCardInfo(artist: String): ArtistArticle? {
         val callResponse = getResponseFromService(artist)
         return lastFMToInfoResolver.getInfoFromExternalData(callResponse.body())
     }

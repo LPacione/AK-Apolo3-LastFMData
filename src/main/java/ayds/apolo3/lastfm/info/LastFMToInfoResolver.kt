@@ -1,30 +1,29 @@
 package ayds.apolo3.lastfm.info
 
-import ayds.apolo3.lastfm.FullCard
+import ayds.apolo.songinfo.moredetails.model.entities.ArtistArticle
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import java.lang.Exception
 
 interface LastFMToInfoResolver {
-    fun getInfoFromExternalData(serviceData: String?): FullCard?
+    fun getInfoFromExternalData(serviceData: String?): ArtistArticle?
 }
 
 private const val DATA_ARTIST = "artist"
 private const val DATA_CONTENT = "content"
 private const val DATA_BIO = "bio"
 private const val DATA_URL = "url"
-private const val SOURCE = 1
 
 
 internal class JsonToInfoResolver : LastFMToInfoResolver {
 
-    override fun getInfoFromExternalData(serviceData: String?): FullCard? =
+    override fun getInfoFromExternalData(serviceData: String?): ArtistArticle? =
         try {
             serviceData?.getJson()?.getArtistInfo()?.let { item ->
-                FullCard(
+                ArtistArticle(
                     item.getArticleDescription().asString.replace("\\n", "\n"),
-                    item.getArticleUrl(), SOURCE
+                    item.getArticleUrl(), sourceLogoURL()
                 )
             }
         } catch (e: Exception) {
@@ -47,5 +46,13 @@ internal class JsonToInfoResolver : LastFMToInfoResolver {
 
     private fun JsonObject.getArticleUrl(): String {
         return this[DATA_URL].asString
+    }
+
+    private fun sourceLogoURL():String {
+        return IMAGE_URL
+    }
+
+    companion object {
+        const val IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Lastfm_logo.svg/320px-Lastfm_logo.svg.png"
     }
 }
