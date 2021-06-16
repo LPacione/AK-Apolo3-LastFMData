@@ -1,13 +1,15 @@
 package ayds.apolo3.lastfm.info
 
+import ayds.apolo3.lastfm.Article
 import ayds.apolo3.lastfm.ArtistArticle
+import ayds.apolo3.lastfm.EmptyArticle
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import java.lang.Exception
 
 interface LastFMToInfoResolver {
-    fun getInfoFromExternalData(serviceData: String?): ArtistArticle?
+    fun getInfoFromExternalData(serviceData: String?): Article?
 }
 
 private const val DATA_ARTIST = "artist"
@@ -18,7 +20,7 @@ private const val DATA_URL = "url"
 
 internal class JsonToInfoResolver : LastFMToInfoResolver {
 
-    override fun getInfoFromExternalData(serviceData: String?): ArtistArticle? =
+    override fun getInfoFromExternalData(serviceData: String?): Article? =
         try {
             serviceData?.getJson()?.getArtistInfo()?.let { item ->
                 ArtistArticle(
@@ -27,7 +29,7 @@ internal class JsonToInfoResolver : LastFMToInfoResolver {
                 )
             }
         } catch (e: Exception) {
-            null
+            EmptyArticle
         }
 
     private fun String?.getJson(): JsonObject {
