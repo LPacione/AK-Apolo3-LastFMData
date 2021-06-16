@@ -41,3 +41,10 @@ You can retrieve the information using
 ```kotlin
 lastFMInfoService.getCardInfo(artistName)
 ```
+
+----
+
+# Exceptional Situations
+
+- In the case of not having access to the Internet, the library will return an empty article without information
+- The library returns an empty article if the artist is not found in the service's database
