@@ -32,15 +32,25 @@ implementation project("lastfmdata")
 
 # LastFM Setup
 
-Instantiate an instance of LastFM-Data
-```kotlin
-val lastFMInfoService: LastFMInfoService
-```
+- Instantiate an instance of LastFM-Data
+    ```kotlin
+    val lastFMInfoService: LastFMInfoService
+    ```
 
-You can retrieve the information using
-```kotlin
-lastFMInfoService.getCardInfo(artistName)
-```
+- To get the instance
+    ```kotlin
+    lastFMInfoService = LastFMModule.lastFMInfoService
+    ```
+    don't forget 
+    ```kotlin
+    import ayds.apolo3.lastfm.LastFMModule
+    ```
+
+- You can retrieve the information using
+    ```kotlin
+    lastFMInfoService.getCardInfo(artistName)
+    ```
+
 
 ----
 
