@@ -4,7 +4,7 @@ import ayds.apolo3.lastfm.LastFMInfoService
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
-object LastFMInfoModule {
+internal object LastFMInfoModule {
 
     private const val LASTFM_URL = "https://ws.audioscrobbler.com/2.0/"
     private val lastFMAPIRetrofit = Retrofit.Builder()

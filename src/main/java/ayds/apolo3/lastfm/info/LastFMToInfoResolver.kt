@@ -8,7 +8,7 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import java.lang.Exception
 
-interface LastFMToInfoResolver {
+internal interface LastFMToInfoResolver {
     fun getInfoFromExternalData(serviceData: String?): Article?
 }
 
