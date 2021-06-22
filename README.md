@@ -32,14 +32,9 @@ implementation project("lastfmdata")
 
 # LastFM Setup
 
-- Instantiate an instance of LastFM-Data
-    ```kotlin
-    val lastFMInfoService: LastFMInfoService
-    ```
-
 - To get the instance
     ```kotlin
-    lastFMInfoService = LastFMModule.lastFMInfoService
+    val lastFMInfoService = LastFMModule.lastFMInfoService
     ```
     don't forget 
     ```kotlin
