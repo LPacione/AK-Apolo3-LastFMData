@@ -28,6 +28,9 @@ internal class JsonToInfoResolver : LastFMToInfoResolver {
                     item.getArticleUrl(), sourceLogoURL()
                 )
             }
+            ?: run{
+                EmptyArticle
+            }
         } catch (e: Exception) {
             EmptyArticle
         }
