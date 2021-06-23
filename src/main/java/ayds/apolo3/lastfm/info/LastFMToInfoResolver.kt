@@ -20,7 +20,7 @@ private const val DATA_URL = "url"
 
 internal class JsonToInfoResolver : LastFMToInfoResolver {
 
-    override fun getInfoFromExternalData(serviceData: String?): Article? =
+    override fun getInfoFromExternalData(serviceData: String?): Article =
         try {
             serviceData?.getJson()?.getArtistInfo()?.let { item ->
                 ArtistArticle(
