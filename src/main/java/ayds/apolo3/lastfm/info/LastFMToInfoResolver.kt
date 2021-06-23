@@ -9,7 +9,7 @@ import com.google.gson.JsonObject
 import java.lang.Exception
 
 internal interface LastFMToInfoResolver {
-    fun getInfoFromExternalData(serviceData: String?): Article?
+    fun getInfoFromExternalData(serviceData: String?): Article
 }
 
 private const val DATA_ARTIST = "artist"
